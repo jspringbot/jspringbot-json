@@ -29,6 +29,7 @@
   </parent>
 
   <artifactId>jspringbot-json</artifactId>
+  <version>1.5-SNAPSHOT</version>
   <name>jspringbot-json</name>
 
   <properties>
