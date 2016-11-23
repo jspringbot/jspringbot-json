@@ -2,6 +2,7 @@ package org.jspringbot.keyword.json;
 
 import net.minidev.json.JSONObject;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.jspringbot.spring.ApplicationContextHolder;
@@ -11,6 +12,7 @@ import javax.xml.transform.TransformerException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class JSONUtils {
     public static final HighlightRobotLogger LOG = HighlightRobotLogger.getLogger(JSONUtils.class);
@@ -76,6 +78,25 @@ public class JSONUtils {
 
         return new ArrayList<String>(object.keySet());
     }
+
+    public static String type(Object item) throws TransformerException {
+        if(Map.class.isInstance(item)) {
+            return "object";
+        } else if(List.class.isInstance(item)) {
+            return "list";
+        } else if(Number.class.isInstance(item)) {
+            return "number";
+        } else if(String.class.isInstance(item)) {
+            return "string";
+        } else if(Boolean.class.isInstance(item)) {
+            return "boolean";
+        } else if(item == null) {
+            return "null";
+        } else {
+            return StringUtils.lowerCase(item.getClass().getSimpleName());
+        }
+    }
+
 
     public static List objects(Object... args) throws TransformerException {
         if(args.length == 2 && JSONObject.class.isInstance(args[0]) && String.class.isInstance(args[1])) {

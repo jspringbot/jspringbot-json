@@ -14,6 +14,12 @@
     <function-signature>net.minidev.json.JSONObject object(java.lang.Object[])</function-signature>
   </function>
   <function>
+    <name>type</name>
+    <prefix>json</prefix>
+    <function-class>org.jspringbot.keyword.json.JSONUtils</function-class>
+    <function-signature>java.lang.String type(java.lang.Object)</function-signature>
+  </function>
+  <function>
     <name>propertyNames</name>
     <prefix>json</prefix>
     <function-class>org.jspringbot.keyword.json.JSONUtils</function-class>

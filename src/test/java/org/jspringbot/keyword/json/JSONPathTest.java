@@ -48,7 +48,11 @@ public class JSONPathTest {
         helper.setJsonString(getJson("classpath:movies.json"));
 
         List<String> keys = JSONUtils.propertyNames("Movies[1]");
-
         System.out.println("keys " + keys);
+
+        for(String key : keys) {
+            String property = "Movies[1]." + key;
+            System.out.println(" Type '" + property + "': " + JSONUtils.type(JSONUtils.object(property)));
+        }
     }
 }
