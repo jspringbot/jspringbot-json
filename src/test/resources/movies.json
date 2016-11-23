@@ -1,0 +1,41 @@
+{
+  "Movies": [
+    {
+      "Id": "1",
+      "Name": "Harry Potter",
+      "Author": "J.K. Rowling",
+      "Genre": ["mystery", "thriller", "adventure", "horror", "romance"],
+      "Series": {
+        "Series1": "Harry Potter and the Sorcerer's Stone",
+        "Series2": "Harry Potter and the Chamber of Secrets",
+        "Series3": "Harry Potter and the Prisoner of Azkaban ",
+        "Series4": "Harry Potter and the Goblet of Fire",
+        "Series5": "Harry Potter and the Order of the Phoenix",
+        "Series6": "Harry Potter and the Half-Blood Prince",
+        "Series7": {
+          "Series1" : "Harry Potter and the Deathly Hallows Part 1",
+          "Series2" : "Harry Potter and the Deathly Hallows Part 2"
+        }
+      }
+    },
+    {
+      "Id": "2",
+      "Name": "Lord of the Rings",
+      "Author": "J. R. R. Tolkien",
+      "Genre": ["adventure", "drama", "fantasy"],
+      "Series": {
+        "Lord of the Rings": [
+        "The Fellowship of the Ring",
+        "The Two Towers",
+        "The Return of the King"
+        ],
+        "The Hobbit": [
+          "An Unexpected Journey",
+          "The Desolation of Smaug",
+          "The Battle of the Five Armies"
+        ]
+      }
+    }
+  ],
+  "Genre": "Adventure"
+}

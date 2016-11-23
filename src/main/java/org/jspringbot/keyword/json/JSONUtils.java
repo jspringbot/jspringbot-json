@@ -9,13 +9,26 @@ import org.jspringbot.syntax.HighlightRobotLogger;
 
 import javax.xml.transform.TransformerException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class JSONUtils {
     public static final HighlightRobotLogger LOG = HighlightRobotLogger.getLogger(JSONUtils.class);
 
+    private static JSONHelper JSON_HELPER;
+
+    public static void setHelper(JSONHelper jsonHelper) {
+        JSON_HELPER = jsonHelper;
+    }
+
     private static JSONHelper getHelper() {
-        return ApplicationContextHolder.get().getBean(JSONHelper.class);
+        if(JSON_HELPER != null) {
+            return JSON_HELPER;
+        }
+
+        JSON_HELPER = ApplicationContextHolder.get().getBean(JSONHelper.class);
+
+        return JSON_HELPER;
     }
 
     public static boolean isJSONValid(String test) {
@@ -45,16 +58,17 @@ public class JSONUtils {
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     public static List<String> propertyNames(String... args) throws TransformerException {
         String path = "*";
-        JSONObject object;
+        LinkedHashMap object;
 
         if(args.length == 1 && String.class.isInstance(args[0])) {
             path = args[0];
         }
 
 
-        object = (JSONObject) getHelper().getJsonValue(path);
+        object = (LinkedHashMap) getHelper().getJsonValue(path);
 
         if(object == null) {
             throw new IllegalStateException(String.format("Unable to find object keys given '%s'", path));
