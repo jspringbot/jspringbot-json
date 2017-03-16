@@ -158,18 +158,8 @@ public class JSONHelper {
         if(jsonExpression.equals("*")) {
             return getRoot();
         }
-        
-        boolean isUpperCase = Character.isUpperCase(jsonExpression.charAt(0));
-        
-        Object jsonValue = null;
-        if ( jsonExpression.contains(".") && !jsonExpression.contains("[") && !jsonExpression.contains("_") && !isUpperCase) {
-        	// See https://groups.google.com/forum/#!topic/jsonpath/7YvgXWP1_7Y
-        	String characterWithDots = String.format("$.['%s']", jsonExpression);
-        	jsonValue= JsonPath.read(jsonString, characterWithDots);
-        } else {
-        	jsonValue = JsonPath.read(jsonString, "$." + jsonExpression);
-        }
-        
+
+        Object jsonValue = JsonPath.read(jsonString, jsonExpression);
 
         if(jsonValue instanceof List) {
             jsonValue = ((List) jsonValue).iterator().next();
