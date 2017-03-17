@@ -77,17 +77,12 @@ public class JSONHelperTest {
 		List<Object> jsonValues = helper.getJsonValues("store.book[*]");
 
 		assertEquals(jsonValues.size(), 4);
-
-		assertEquals(jsonValues.get(0).toString(),
-				"{category=reference, author=Nigel Rees, title=Sayings of the Century, price=8.95}");
-		assertEquals(jsonValues.get(1).toString(),
-				"{category=fiction, author=Evelyn Waugh, title=Sword of Honour, price=12.99}");
-		assertEquals(jsonValues.get(2).toString(),
-				"{category=fiction, author=Herman Melville, title=Moby Dick, isbn=0-553-21311-3, price=8.99}");
-		assertEquals(jsonValues.get(3).toString(),
-				"{category=fiction, author=J. R. R. Tolkien, title=The Lord of the Rings, isbn=0-395-19395-8, price=22.99}");
-
-	}
+		
+		assertEquals(jsonValues.get(0).toString(), "{category=reference, author=Nigel Rees, title=Sayings of the Century, price=8.95}");
+		assertEquals(jsonValues.get(1).toString(), "{category=fiction, author=Evelyn Waugh, title=Sword of Honour, price=12.99}");
+		assertEquals(jsonValues.get(2).toString(), "{category=fiction, author=Herman Melville, title=Moby Dick, isbn=0-553-21311-3, price=8.99}");
+		assertEquals(jsonValues.get(3).toString(), "{category=fiction, author=J. R. R. Tolkien, title=The Lord of the Rings, isbn=0-395-19395-8, price=22.99}");
+				
 
 	@Test
 	public void testJsonValueShouldBeNumbers() throws Exception {
