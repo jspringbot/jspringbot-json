@@ -35,6 +35,7 @@ import org.springframework.core.io.ResourceEditor;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -176,15 +177,16 @@ public class JSONHelper {
 
     public void jsonValueShouldBe(String jsonExpression, String expectedValue) {
         Object jsonValue = getJsonValue(jsonExpression);
-
+        
         if (Number.class.isInstance(jsonValue)) {
-            Double expectedNumberValue = Double.valueOf(expectedValue);
-            if (!expectedNumberValue.equals(jsonValue)) {
-                throw new IllegalArgumentException(String.format("Expecting '%s' json value but was '%s'",expectedValue,String.valueOf(jsonValue)));
+            BigDecimal expectedNumberValue = new BigDecimal(expectedValue);
+            BigDecimal jsonNumberValue = new BigDecimal(jsonValue.toString());
+            if (!expectedNumberValue.equals(jsonNumberValue)) {
+                throw new IllegalArgumentException(String.format("Expecting '%s' json number value but was '%s'",expectedValue,String.valueOf(jsonValue)));
             }
         } else {
             if (!expectedValue.equals(String.valueOf(jsonValue))) {
-                throw new IllegalArgumentException(String.format("Expecting '%s' json value but was '%s'",expectedValue,String.valueOf(jsonValue)));
+                throw new IllegalArgumentException(String.format("Expecting '%s' json string value but was '%s'",expectedValue,String.valueOf(jsonValue)));
             }
         }
     }
