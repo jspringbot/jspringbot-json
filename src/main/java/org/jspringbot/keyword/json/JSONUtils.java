@@ -110,7 +110,7 @@ public class JSONUtils {
             return getHelper().getJsonValues(jsonPath);
         }
 
-        throw new IllegalArgumentException("Expected 'xml:objects(jsonObject, jsonPath)' or 'xml:objects(jsonPath)'.");
+        throw new IllegalArgumentException("Expected 'json:objects(jsonObject, jsonPath)' or 'json:objects(jsonPath)'.");
     }
 
     public static Object singleProperty(JSONObject obj, String propertyName) {
