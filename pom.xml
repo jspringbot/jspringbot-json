@@ -25,18 +25,18 @@
   <parent>
     <groupId>org.jspringbot</groupId>
     <artifactId>jspringbot-libraries</artifactId>
-    <version>1.5</version>
+    <version>1.9</version>
   </parent>
 
   <artifactId>jspringbot-json</artifactId>
-  <version>1.6-SNAPSHOT</version>
+  <version>1.10-SNAPSHOT</version>
   <name>jspringbot-json</name>
+  <description>JSpringBot JSON Library</description>
 
   <properties>
     <libdoc.name>JSpringBot JSON Library</libdoc.name>
     <libdoc.output>JSpringBotJSONLibrary.html</libdoc.output>
   </properties>
-
 
   <licenses>
     <license>
@@ -46,17 +46,6 @@
       <comments>A business-friendly OSS license</comments>
     </license>
   </licenses>
-
-  <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
 
   <scm>
     <connection>scm:git:https://github.com/jspringbot/jspringbot-json.git</connection>
@@ -88,6 +77,7 @@
     <dependency>
       <groupId>org.jspringbot</groupId>
       <artifactId>jspringbot-expression</artifactId>
+      <version>${jspringbot.version}</version>
     </dependency>
     <dependency>
       <groupId>com.jayway.jsonpath</groupId>
