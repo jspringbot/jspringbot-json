@@ -68,7 +68,7 @@ public class JSONHelperTest {
 
 		assertEquals(jsonValue, "yes");
 	}
-	
+
 	@Test
 	public void testMultipleValuesPath() throws Exception {
 
@@ -83,5 +83,25 @@ public class JSONHelperTest {
 		assertEquals(jsonValues.get(2).toString(), "{category=fiction, author=Herman Melville, title=Moby Dick, isbn=0-553-21311-3, price=8.99}");
 		assertEquals(jsonValues.get(3).toString(), "{category=fiction, author=J. R. R. Tolkien, title=The Lord of the Rings, isbn=0-395-19395-8, price=22.99}");
 				
+
+	@Test
+	public void testJsonValueShouldBeNumbers() throws Exception {
+
+		helper.setJsonString(getJson("classpath:numbers.json"));
+
+		helper.jsonValueShouldBe("empty", "");
+		helper.jsonValueShouldBe("zero", "0");
+		helper.jsonValueShouldBe("integer", "10");
+		helper.jsonValueShouldBe("integer-neg", "-15");
+		helper.jsonValueShouldBe("long", "12345678901");
+		helper.jsonValueShouldBe("long-neg", "-10987654321");
+		helper.jsonValueShouldBe("double", "123456.0");
+		helper.jsonValueShouldBe("double-neg", "-654.321");
+		helper.jsonValueShouldBe("double-tiny", "0.000000000000000000000123");
+		helper.jsonValueShouldBe("bigdecimal", "1234567890123456789.0");
+		helper.jsonValueShouldBe("bigdecimal-neg", "-98765432109876543210.0");
+		helper.jsonValueShouldBe("non-number", "abc");
+
 	}
+
 }

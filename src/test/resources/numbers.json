@@ -1,0 +1,14 @@
+{
+	"empty": "",
+	"zero": 0,
+    "integer": 10,
+    "integer-neg": -15,
+    "long": 12345678901,
+    "long-neg": -10987654321,
+    "double": 123456.0,
+    "double-neg": -654.321,
+    "double-tiny": 0.000000000000000000000123,
+    "bigdecimal": 1234567890123456789.0,
+    "bigdecimal-neg": -98765432109876543210.0,
+    "non-number": "abc"
+}
